@@ -1,0 +1,70 @@
+{%extends 'layout.html'%}
+{%block title%}Sign Up{%endblock title%}
+
+{%block content%}
+
+<div class="container" style="max-width: 600px;">
+  <section class="hero is-info is-bold">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">Signup here</h1>
+        <h2 class="subtitle">Connecting people through the power of tweets</h2>
+      </div>
+    </div>
+  </section>
+    <form class="box" action="{%url 'signup'%}" method="post">
+        {%csrf_token%}
+        <div class="field">
+            {{form.username.label_tag}}
+          <label class="label">Username</label>
+          <div class="control">
+            {{form.username}}
+          </div>
+        </div>
+      
+        <div class="field">
+            
+          <label class="label">First Name</label>
+          <div class="control">
+            {{form.first_name}}
+          </div>
+        </div>
+
+
+        <div class="field">
+            
+            <label class="label">Last Name</label>
+            <div class="control">
+              {{form.last_name}}
+            </div>
+          </div>
+
+
+          <div class="field">
+            
+            <label class="label">Email</label>
+            <div class="control">
+              {{form.email}}
+            </div>
+          </div>
+
+          <div class="field">
+            
+            <label class="label">Password</label>
+            <div class="control">
+              {{form.password1}}
+            </div>
+          </div>
+
+          <div class="field">
+            
+            <label class="label">Confirm  Password</label>
+            <div class="control">
+              {{form.password2}}
+            </div>
+          </div>
+      
+        <button class="button is-primary">Sign in</button>
+      </form>
+</div>
+{%endblock content%}

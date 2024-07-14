@@ -1,0 +1,60 @@
+{%extends 'layout.html'%}
+
+{%block title%}Search result{%endblock title%}
+
+{%block content%}
+<h2 style="align-items: center;">Search Result</h2>
+
+<div class="container">
+  <div class="grid is-col-min-12">
+ 
+    {%for tweet in tweets%}
+    <div class="card mt-2 cell ">
+        <div class="card-image ">
+            <figure class="image is-2by1">
+              <img 
+                          src="{{tweet.photo.url}}"
+                alt="Placeholder image"
+              />
+            </figure>
+          </div>
+         
+        <header class="card-header ">
+            
+          
+          <div class="card-content">
+            <p class="card-header-title">Tweet</p>
+            <p class="card-header-title">User- {{tweet.user}}</p>
+            <p class="card-header-title">Update At- {{tweet.updated_at}}</p>
+            </div>
+         
+          
+         
+          <button class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+          </button>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            {{tweet.text}}
+          </div>
+        </div>
+        {%if user.is_authenticated and tweet.user == user%}
+        <footer class="card-footer">
+          
+          <a href="{%url 'tweet_edit' tweet.pk%}" class="card-footer-item">Edit</a>
+          <a href="{%url 'delete_tweet' tweet.pk%}" class="card-footer-item">Delete</a>
+        </footer>
+        {%endif%}
+       
+      </div>
+      {%endfor%}
+      
+        
+    </div>
+    
+    
+</div>
+{%endblock content%}

@@ -1,0 +1,58 @@
+{%extends 'layout.html'%}
+
+{%block title%}Contact us{%endblock title%}
+
+
+{%block content%}
+<div class="container" style="max-width: 600px;">
+    <section class="hero is-info is-bold">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title">Contact us</h1>
+          <h2 class="subtitle">Connecting people through the power of tweets</h2>
+        </div>
+      </div>
+    </section>
+      <form class="box" action="" method="post">
+          {%csrf_token%}
+          <div class="field">
+             
+            <label class="label">Name</label>
+            <div class="control">
+              {{form.name}}
+            </div>
+          </div>
+        
+          <div class="field">
+              
+            <label class="label">Your Query</label>
+            <div class="control">
+              {{form.info}}
+            </div>
+          </div>
+  
+  
+          <div class="field">
+              
+              <label class="label">Email</label>
+              <div class="control">
+                {{form.email}}
+              </div>
+            </div>
+  
+  
+            <div class="field">
+              
+              <label class="label">Mobile Number</label>
+              <div class="control">
+                {{form.mobile}}
+              </div>
+            </div>
+  
+            
+            
+        
+          <button class="button is-danger">Send</button>
+        </form>
+  </div>
+{%endblock content%}
